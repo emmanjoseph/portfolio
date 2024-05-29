@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { projects } from "@/Data";
 import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./ui/MagicButton";
+import { IoClose } from "react-icons/io5";
 import { IoMdMore } from "react-icons/io";
 import { CiPaperplane } from "react-icons/ci";
 // import { PinContainer } from "./ui/3d-pin";
@@ -74,21 +74,23 @@ const RecentProjects = () => {
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-4/12 text-black">
-            <h2 className="text-xl font-bold mb-4">Project Details</h2>
-            <p>{selectedProject.des}</p>
-            <h3 className="text-lg font-semibold mt-4">Technologies Used:</h3>
-            <ul className="list-disc list-inside mt-2">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center duration-500">
+          <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-4/12 text-black duration-400">
+            <h2 className="text-xl font-medium mb-1 text-[16px] text-indigo-700">Project Details</h2>
+            <p className="text-gray-700 w-full text-justify text-[14px]">{selectedProject.des}</p>
+            <h3 className="text-lg font-medium mt-1 text-[16px] text-indigo-700">Technologies Used:</h3>
+            <div className="grid grid-cols-2 gap-1 ">
               {selectedProject.technologies.map((tech, index) => (
-                <li key={index}>{tech}</li>
+                <span key={index}
+                className="text-gray-700 text-[14px]"
+                >{tech}</span>
               ))}
-            </ul>
+            </div>
             <button
-              className="mt-4 bg-purple-500 text-white bg-indigo-700 py-2 px-4 rounded-full text-[13px]"
+              className="absolute top-2 md:top-[25%] right-2 md:right-[30%] bg-purple-500 text-white bg-indigo-700  p-4 rounded-full text-[13px]"
               onClick={closePopup}
             >
-              Close
+              <IoClose size={20} />
             </button>
           </div>
         </div>
