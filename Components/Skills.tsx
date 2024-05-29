@@ -57,7 +57,7 @@ const Skills = () => {
                         </p>
                                           
                 </div>
-                <div className='mt-4 w-full md:w-[95%] mx-auto grid grid-cols-3 gap-4 md:gap-6'>
+                <div className='mt-4 w-full md:w-[95%]  mx-auto grid-cols-2 grid md:grid-cols-3 gap-4 md:gap-6'>
                             {skills.map((skill, index) => (
                                 <div key={index} className='flex items-center'>
                                     <div className='text-2xl mr-3 text-indigo-500'>
